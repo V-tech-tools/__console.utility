@@ -35,24 +35,25 @@ Well just load it as a constant...and have fun...
 	Or look at the test.js file for more info how to use these functions...
 	const [cs, clearConsole, log, logInfo, logWarn, logError ] = require ('./v__console.utility');
 
--> Clear Console
-   clearConsole();
-Alias: cs();
-
--> console.log()
-  log();
-
--> Will use the console.info() 
-   logInfo();
-A> logI();
+	-> Clear Console
+	   clearConsole();
+	Alias: cs();
+	
+	-> console.log()
+	  log();
+	
+	-> Will use the console.info() 
+	   logInfo();
+	A> logI();
+	  
+	-> Warning ...
+	   logWarn();
+	A> logW();
+	  
+	-> Console Error  
+	   logError();
+	A> logE();
   
--> Warning ...
-   logWarn();
-A> logW();
-  
--> Console Error  
-   logError();
-A> logE();
 	...
 
 
