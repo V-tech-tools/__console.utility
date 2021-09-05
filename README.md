@@ -17,7 +17,7 @@ Add this repo git URL into dependencies in your projects package.json.
 ## 💥 How to use:
 Well just load it as a constant...and have fun... 
 
-	const v_con = require( 'v__console.utility' );
+	const [v_con] = require( 'v__console.utility' );
 
 	// Simple listing
 	v_con.log( "message to print" );
@@ -31,6 +31,9 @@ Well just load it as a constant...and have fun...
 	v_con.logE( "Some adaasdd das as git status" );
 	v_con.logError( "Some adaasdd das as git status" );
 
+
+	Or look at the test.js file for more info how to use these..
+	const [v_con, cs, clearConsole, log, logInfo, logWarn, logError ] = require ('./v__console.utility');
 	...
 
 
