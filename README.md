@@ -36,23 +36,23 @@ Or look at the test.js file for more info how to use these functions...
 const [cs, clearConsole, log, logInfo, logWarn, logError ] = require ('./v__console.utility');
 
 	// Clear Console
-	   clearConsole();
-	   cs();  //<- Function Alias [note: will call the original]
+	clearConsole();
+	cs();  //<- Function Alias [note: will call the original]
 	
 	// console.log()
-	   log();
+	log();
 	
 	// Will use the console.info() 
-	   logInfo();
-	   logI();  //<- Function Alias [note: will call the original]
+	logInfo();
+	logI();  //<- Function Alias [note: will call the original]
 	  
 	// Warning ...
-	   logWarn();
-	   logW();  //<- Function Alias [note: will call the original]
+	logWarn();
+	logW();  //<- Function Alias [note: will call the original]
 	  
 	// Console Error  
-	   logError();
-	   logE();  //<- Function Alias [note: will call the original]
+	logError();
+	logE();  //<- Function Alias [note: will call the original]
   
 	...
 
