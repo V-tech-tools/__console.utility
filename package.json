@@ -2,7 +2,7 @@
   "name": "v__console.utility",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "v__console.utility.js",
   "scripts": {
     "test": "node test.js"
   },

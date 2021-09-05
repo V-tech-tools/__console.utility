@@ -1,5 +1,5 @@
 /*jshint esversion: 8 */
-const [v_con, cs, clearConsole, log, logInfo, logWarn, logError ] = require ('./vonsole');
+const [v_con, cs, clearConsole, log, logInfo, logWarn, logError ] = require ('./v__console.utility');
 
 var timingS = 500;
 var timingM = 1000;
