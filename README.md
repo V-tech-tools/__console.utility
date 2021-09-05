@@ -33,8 +33,8 @@ Well just load it as a constant...and have fun...
 
 
 Or look at the test.js file for more info how to use these functions...
-const [cs, clearConsole, log, logInfo, logWarn, logError ] = require ('./v__console.utility');
-
+	const [cs, clearConsole, log, logInfo, logWarn, logError ] = require ('./v__console.utility');
+	
 	// Clear Console
 	clearConsole();
 	cs();  //<- Function Alias [note: will call the original]
