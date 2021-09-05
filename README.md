@@ -32,27 +32,27 @@ Well just load it as a constant...and have fun...
 	v_con.logError( "Some adaasdd das as git status" );
 
 
-	Or look at the test.js file for more info how to use these functions...
-	const [cs, clearConsole, log, logInfo, logWarn, logError ] = require ('./v__console.utility');
+Or look at the test.js file for more info how to use these functions...
+const [cs, clearConsole, log, logInfo, logWarn, logError ] = require ('./v__console.utility');
 
-	-> Clear Console
+	// Clear Console
 	   clearConsole();
-	Alias: cs();
+	   cs();  //<- Function Alias [note: will call the original]
 	
-	-> console.log()
-	  log();
+	// console.log()
+	   log();
 	
-	-> Will use the console.info() 
+	// Will use the console.info() 
 	   logInfo();
-	A> logI();
+	   logI();  //<- Function Alias [note: will call the original]
 	  
-	-> Warning ...
+	// Warning ...
 	   logWarn();
-	A> logW();
+	   logW();  //<- Function Alias [note: will call the original]
 	  
-	-> Console Error  
+	// Console Error  
 	   logError();
-	A> logE();
+	   logE();  //<- Function Alias [note: will call the original]
   
 	...
 
