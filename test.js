@@ -41,6 +41,9 @@ function testObj() {
         v_con.clearConsole();
         setTimeout(() => {
           v_con.log("v_con.clearConsole() -> DONE ");
+
+          log(v_con);
+
         }, timingS);
       }, timingS);
     }, timingS);

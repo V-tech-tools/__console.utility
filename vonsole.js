@@ -18,6 +18,12 @@ const logInfo = (msg = null) => {
     return error;
   }
 };
+
+//-> Short Name as ALIAS 
+const logI = (msg) => {
+  return logInfo(msg);
+};
+
 const logWarn = (msg = null) => {
   try {
     console.warn(msg);
@@ -26,6 +32,11 @@ const logWarn = (msg = null) => {
     console.trace();
     return error;
   }
+};
+
+//-> Short Name as ALIAS 
+const logW = (msg) => {
+  return logWarn(msg);
 };
 
 // <F>-: logError
@@ -47,7 +58,11 @@ const logE = (msg) => {
 
 // <F>-: clear console function 
 const clearConsole = () => {
-  console.clear();
+  try {
+    console.clear();
+  } catch (error) {
+    return error;
+  }
 };
 
 
@@ -68,16 +83,22 @@ const v_con = {
     return log(msg);
   },
   logInfo : ( msg ) => {
-    return logInfo( msg );
+    return logI( msg );
+  },
+  logI : ( msg ) => {
+    return logI( msg );
   },
   logWarn : ( msg ) => {
-    return logWarn( msg );
+    return logW( msg );
+  },
+  logW : ( msg ) => {
+    return logW( msg );
   },
   logError : ( msg ) => {
-    return logError( msg );
+    return logE( msg );
   },
   logE : (msg) => {
-    return logError(msg);
+    return logE(msg);
   }
 };
 
