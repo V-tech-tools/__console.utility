@@ -7,7 +7,7 @@
     "test": "node test.js",
     "webpack": "npx webpack --config webpack.production.js",
     "webpack_dev": "npx webpack --config webpack.development.js",
-    "dev_start": "nodemon --exec ",
+    "dev_start": "start bash -c \"nodemon --exec npm run webpack_dev \" && start bash -c \"node express_static.dev.js\" ",
     "dist": "node test.js"
   },
   "repository": {
@@ -23,7 +23,11 @@
   "homepage": "https://github.com/V-tech-tools/__console.utility#readme",
   "devDependencies": {
     "express": "^4.17.1",
+    "faker": "^5.5.3",
     "webpack": "^5.53.0",
     "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {
+    "uuid": "^8.3.2"
   }
 }

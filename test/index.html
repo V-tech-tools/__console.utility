@@ -3,12 +3,290 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>TEST PAGE</title>
+  <title>Browser Console API Test Page [ vConsole <> vLog ] </title>
+  <style>
+    * {
+      transition: 0.25s linear all;
+    }
+
+    html,
+    body {
+      display: flex;
+      flex: 1;
+      height: 100%;
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      background: #102030;
+      color: white;
+      font-family: monospace;
+      font-size: 16px;
+    }
+
+
+    v-console {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      margin: 1em;
+      background: rgb(255 255 255 / 10%);
+      overflow: hidden;
+      border: 1px solid #525d69;
+      box-shadow: 0 0 15px black;
+    }
+
+    v-console>* {
+      padding: 1em;
+      background: rgb(255 255 255 / 7%);
+    }
+
+    log-list {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      overflow: hidden;
+      flex: 1;
+      padding-top: 1em;
+    }
+
+    log-item {
+      display: flex;
+      flex-direction: column;
+      background: rgb(255 255 255 / 5%);
+      text-shadow: 0 0 5px black;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgb(255 255 255 / 15%);
+      opacity: .85;
+      cursor: pointer;
+      margin: 0.5em 0;
+      line-height: 1em;
+      box-shadow: 0 0.15em 0.5em black;
+    }
+
+    log-list>val {
+      display: flow-root;
+      flex-direction: column;
+      overflow: auto;
+      padding: .5em 1em;
+      height: 100%;
+      margin: 1em;
+      position: relative;
+      box-shadow: 0 0 1em 1em inset #24313e;
+      border-top: 5px solid #24313e;
+      border-bottom: 5px solid #24313e;
+    }
+
+    log-item:hover {
+      opacity: 1;
+      transform: scale(1.01) translateY(-3px);
+      transition: 0.25s linear all;
+      box-shadow: 0 5px 10px #2d2d2d;
+      background: rgb(0 0 0 / 14%);
+      z-index: 500;
+    }
+
+    [type='log'] {
+      border-bottom: 2px solid #b1b1b1;
+    }
+
+    [type='info'] {
+      border-bottom: 2px solid #2196f3;
+    }
+
+    [type='warn'] {
+      border-bottom: 2px solid #FF9800;
+    }
+
+    [type='error'] {
+      border-bottom: 2px solid #F44336;
+    }
+
+    [type='log'] icon {
+      color: #b1b1b1;
+    }
+
+    [type='info'] icon {
+      color: #2196f3;
+    }
+
+    [type='warn'] icon {
+      color: #FF9800;
+    }
+
+    [type='error'] icon {
+      color: #F44336;
+    }
+
+    log-item type {
+      position: absolute;
+      bottom: -1em;
+      color: rgb(0 0 0 / 30%);
+      font-size: 2.75em;
+      line-height: 1em;
+      text-shadow: none;
+      /* font-family: fantasy; */
+      font-weight: 900;
+      right: -.05em;
+      text-transform: uppercase;
+    }
+
+    [type='log'] type {
+      color: #b1b1b1;
+    }
+
+    [type='info'] type {
+      color: #2196f3;
+    }
+
+    [type='warn'] type {
+      color: #FF9800;
+    }
+
+    [type='error'] type {
+      color: #F44336;
+    }
+
+    log-item:hover type {
+      /* opacity: 0.5; */
+      bottom: -.2em;
+    }
+
+    [type='log']:hover {
+      background: #b1b1b1a0;
+    }
+
+    [type='info']:hover {
+      background: #2196f3a0;
+
+    }
+
+    [type='warn']:hover {
+      background: #FF9800a0;
+    }
+
+    [type='error']:hover {
+
+      background: #F44336a0;
+    }
+
+    log-item icon {
+      font-size: 1.15em;
+      margin-right: 1em;
+      display: inline;
+      color: black;
+      color: #d8d8d8;
+      font-weight: 400;
+      text-shadow: 0 0 2px black;
+    }
+
+    log-item msg {
+      padding: .25em 1em;
+    }
+
+    log-item ts,
+    log-item id {
+      background: #0000001f;
+      padding: .25em 1em;
+    }
+
+    info-stats {
+      display: flex;
+      flex-direction: column;
+      font-size: 1em;
+      gap: 0.25em;
+      background: rgb(0 0 0 / 10%);
+      border-width: 15px 0px 15px 0px;
+    }
+
+    info-block {
+      background: rgb(255 255 255 / 10%);
+      text-shadow: 0 0 2px black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.25em 0.25em 0.25em .5em;
+    }
+
+    block-title {
+      color: white;
+      display: inline;
+      padding: .25em 1em;
+      line-height: 1.25em;
+      font-size: 1.25em;
+      font-weight: 700;
+      padding: 2em 1em 1em 1em;
+    }
+
+    v-header {
+      background: rgb(0 0 0 / 15%);
+      box-shadow: 0 0 15px black;
+    }
+
+    v-footer {
+      background: rgb(0 0 0 / 15%);
+      box-shadow: 0 0 15px black;
+    }
+
+    v-footer block-title {
+      color: #03A9F4;
+    }
+
+    .enabled_option {
+      background: linear-gradient(89deg, #03a9f4a6, #00000059);
+      text-shadow: 0 0 2px black;
+      color: white;
+      display: flex;
+      padding: 0;
+      box-shadow: 0 0 20px inset #03a9f4;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.25em 0.25em 0.25em .5em;
+    }
+
+    info-block val {
+      padding: 0.25em 1em;
+      background: #283745;
+    }
+
+    .enabled_option val {
+      background: #03a9f4;
+      box-shadow: 0 0 15px #03a9f4;
+    }
+
+    info-block[action] {
+      cursor: pointer;
+    }
+
+    info-block[action]:hover {
+      background: #03a9f4;
+      opacity: 1;
+      box-shadow: 0 5px 10px black;
+    }
+
+    info-block.enabled_option[action]:hover {
+      background: linear-gradient(89deg, #03a9f4, #00000059);
+      opacity: 1;
+    }
+
+
+    log-list block-title {
+      padding: 0.5em 1em;
+    }
+
+    info-block block-title {
+      padding: .25em .5em;
+    }
+  </style>
 </head>
 
 <body>
-  TEST PAGE
-  <script src="/app_root.v_pack.js"></script>
+  <!--script src="/vonsole.root.v_pack.js"></script-->
+  <script src="/v_console.test.v_pack.js"></script>
 </body>
 
 </html>

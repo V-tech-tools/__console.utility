@@ -1,7 +1,10 @@
+const path = require("path");
+
 module.exports = {
   mode: "development",
   entry: {
-    app_root: "./src/vonsole.js",
+    //"vonsole.root": "./src/vonsole.js",
+    "v_console.test": "./src/v_console.test.js",
   },
   target: "web",
   output: {

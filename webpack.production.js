@@ -1,7 +1,9 @@
+const path = require("path");
+
 module.exports = {
   mode: "production",
   entry: {
-    app_root: "./src/vonsole.js",
+    v_console: "./src/v_console.js",
   },
   target: "web",
   output: {

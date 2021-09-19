@@ -5,8 +5,8 @@ const path = require("path");
 const server = require("http").createServer(app);
 
 // Routing
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "test")));
 
 server.listen(6565, () => {
-  console.log("Server listening at vCfg.port %d", vCfg.port);
+  console.log("Server listening at 6565 %d", 6565);
 });
