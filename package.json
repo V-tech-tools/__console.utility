@@ -4,20 +4,26 @@
   "description": "",
   "main": "v__console.utility.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "webpack": "npx webpack --config webpack.production.js",
+    "webpack_dev": "npx webpack --config webpack.development.js",
+    "dev_start": "nodemon --exec ",
+    "dist": "node test.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/V-tech-tools/__console.utility.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "V-core9",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/V-tech-tools/__console.utility/issues"
   },
   "homepage": "https://github.com/V-tech-tools/__console.utility#readme",
   "devDependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0"
   }
 }
