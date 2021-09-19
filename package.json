@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/V-tech-tools/__console.utility/issues"
   },
-  "homepage": "https://github.com/V-tech-tools/__console.utility#readme"
+  "homepage": "https://github.com/V-tech-tools/__console.utility#readme",
+  "devDependencies": {
+    "express": "^4.17.1"
+  }
 }
